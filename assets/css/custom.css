@@ -1,0 +1,191 @@
+/*Custom CSS*/
+#loading {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   display: none;
+   background: url(../media/spinners/back-trans.png);
+   z-index: 99999999;
+   text-align: center;
+}
+
+#loading-image {
+  width: 10%;
+  position: absolute;
+  top: 40%;
+  /*left: 50%;*/
+  margin: 0 auto;
+  z-index: 99999999999;
+}
+
+#kt_content{
+  padding-top: 30px;
+}
+
+.logos-colab{
+  width: 100%;
+}
+
+.textMayus{
+  text-transform: uppercase !important;
+}
+
+.dataTables_filter{
+	text-align: right !important;
+}
+
+.dataTables_length{
+  margin-left: 15px;
+}
+
+.dataTables_filter, .dataTables_length{
+  display: inline-flex !important;
+}
+
+.dataTables_filter{
+  float: right;
+}
+
+.dataTables_filter input, .dataTables_length select{
+	margin: 0 10px !important;
+}
+
+.dataTables_length label,  .dataTables_filter label{
+    display: inline-flex !important;
+}
+
+.div-extra{
+	display: inline-flex;
+}
+.header-extra{
+	font-weight: 700 !important;
+}
+.contenido-extra{
+	margin: 0 10px;
+}
+
+.dataTables_paginate, .paging_full_numbers{
+	float: right !important;
+}
+
+
+.modal-body .table-responsive{
+	overflow: hidden;
+}
+
+@media (min-width: 992px){
+	.header-fixed.subheader-fixed.subheader-enabled .wrapper {
+	    padding-top: 80px;
+	}
+}
+
+.modal .modal-header .close span {
+  display: block;
+}
+
+.th_peq{
+  width: 110px !important;
+}
+
+.th_peq_dos{
+  width: 150px !important;
+}
+
+
+.th_peq_tres{
+  width: 90px !important;
+}
+
+.label-medium{
+  width: 100px !important;
+  text-align: right;
+  right: 18px;
+}
+
+.label-large{
+  width: 150px !important;
+  text-align: right;
+}
+
+.timeline.timeline-6:before {
+  left: 101px;
+}
+
+.form-control {
+  padding: .65rem 1.5rem;
+}
+
+.btn.btn-primary {
+    color: #fff;
+    background-color: #0A57A3;
+    border-color: #0A57A3;
+    box-shadow: 0 2px 2px 0 rgb(10 87 163 / 14%), 0 3px 1px -2px rgb(10 87 163 / 20%), 0 1px 5px 0 rgb(10 87 163 / 12%);
+}
+
+.btn.btn-warning {
+    color: #0D579E;
+    font-weight: 700;
+    background-color: #FAC805;
+    border-color: #FAC805;
+    box-shadow: 0 2px 2px 0 rgb(255 152 0 / 14%), 0 3px 1px -2px rgb(255 152 0 / 20%), 0 1px 5px 0 rgb(255 152 0 / 12%);
+}
+
+.spantext{
+  display: none;
+}
+
+a.btn:hover .spantext{
+  display: inline;
+
+}
+
+/*
+  Calendario
+*/
+.fc-time-grid-event .fc-time, 
+.fc-time-grid-event .fc-title {
+  margin-left: 5px;
+  display: inline-flex;
+}
+
+.fc-description {
+  display: block;
+  margin-left: 15px;
+  margin-top: 0px !important;
+}
+
+/*Vista de semana*/
+.fc-timeGridWeek-view .fc-time-grid-event {
+  overflow: hidden;
+  min-height: 65px;
+}
+
+/*Vista diaria*/
+.fc-timeGridDay-view .fc-time-grid-event {
+  overflow: hidden;
+  min-height: 30px;
+}
+
+/*Formato para los días de la semana*/
+th.fc-day-header {
+  text-transform: uppercase;
+}
+
+.filtro-activo{
+  background-color: dodgerblue !important;
+  color: #FFFFFF !important;
+}
+
+.card.card-custom > .card-header .card-title {
+  margin: 0 auto !important;
+}
+
+.swal2-container.swal2-backdrop-show, .swal2-container.swal2-noanimation {
+  background: rgba(0,0,0,.6) !important;
+}
+
+.swal2-popup {
+  box-shadow: 0px 10px 15px -3px rgb(0 0 0 / 10%) !important;
+}

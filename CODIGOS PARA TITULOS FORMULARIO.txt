@@ -1,0 +1,201 @@
+<!--
+	TERCER NIVEL
+-->
+
+											<div class="row mt-40">
+												<div class="col-xl-12">
+													<form id="copiatitulo" class="fileupload" action="" method="POST" enctype="multipart/form-data">
+														<div class="form-group">
+															<div class="row fileupload-buttonbar">
+													          <div class="col-lg-12">
+													          	<div class="row">
+													          		<div class="col-lg-5">
+													          			<label class="fs-14">
+															          		2- Copia de títulos de tercer nivel de grado universitario. <span class="text-danger">*</span> <br>
+															          	</label>
+
+															          	<p class="text-muted mt-3">
+															          		Archivos permitidos: gif, jpeg, png, pdf. <br>
+															          		Tamaño máximo de cada archivo: 3 MB.
+															          	</p>
+
+															          	<input type="hidden" name="archivo[]" class="archivos required">
+													          		</div>
+													          		<div class="col-lg-7">
+													          			<img src="landings/assets/img/certificado-graduado.png">
+													          		</div>
+													          	</div>
+													          	
+													          </div>
+													          <div class="col-lg-12">
+														            <!-- The fileinput-button span is used to style the file input field as button -->
+														            <?php 
+														              $stylecopiatitulo = 0;
+														              $SQLCantTitulos = " SELECT * FROM titulos AS t WHERE t.id_postulacion = '$id_postulacion'  AND tipo = 1";
+																					$SQLconsultaCantTitulos = $conexionmysqli->query($SQLCantTitulos);
+																					$SQLconsultaCantTitulos->data_seek(0);
+																					$cantTitulos = mysqli_num_rows($SQLconsultaCantTitulos);
+																					$SQLconsultaCantTitulos->close();
+
+														            	if($cantTitulos == 3){
+														            		$stylecopiatitulo = "display: none";
+														             	}else{
+														             		$stylecopiatitulo = "display: initial";
+														             	}; 
+														            ?>
+														            <span class="btn btn-primary btn-sm fileinput-button"  id="copiatitulo" style="<?php echo $stylecopiatitulo; ?>">
+														              <i class="bi bi-plus"></i>
+														              <span>AÑADIR ARCHIVO <?php echo $cantTitulos; ?></span>
+														              <input type="file" name="files[]" multiple />
+														            </span>
+													            <span class="fileupload-process"></span>
+													          </div>
+													          <!-- The global progress state -->
+													          <div class="col-lg-7 fileupload-progress fade" style="margin-top: 5px;">
+													            
+													            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+													              <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
+													            </div>
+													          
+													            <div class="progress-extended">&nbsp;</div>
+													          </div>
+
+													        </div>
+													        <!-- The table listing the files available for upload/download -->
+													        <table role="presentation" class="table table-bordered" id="tabla-titulo" data-idp="<?php echo $id_postulacion ?>">
+													          <thead>
+													          	<tr>
+													          		<!-- th></th -->
+													          		<th colspan="2" style="border: 1px solid #cdcdcd;">Archivo</th>
+													          		<!-- th style="border: 1px solid #cdcdcd;">Acciones</th -->
+													          	</tr>
+													          </thead>
+													          <tbody class="files">
+													          	<?php 
+													          		if ($copiatitulo == 'si') {
+													          			//Consulto los archivos en la BD
+													          			$SQLTitulos = " SELECT * FROM titulos WHERE id_postulacion = '$id_postulacion' AND tipo = 1";
+																				  $SQLconsultaTitulos = $conexionmysqli->query($SQLTitulos);
+																				  $SQLconsultaTitulos->data_seek(0);
+																				  $x=0;
+																				    while ($registro_Titulos = $SQLconsultaTitulos->fetch_assoc()) {
+																				    	
+																				    	$x++;
+																				    	$id_archivo = $registro_Titulos['id_titulo'];
+																				   		$archivo = $registro_Titulos['archivo'];
+
+																				   		echo "<tr><td>$archivo</td><td> <a href='$_urlApp/uploads/$archivo' target='_blank' class='btn-ver-archivo' data-archivo='$archivo'><i class='bi bi-eye text-success'></i></a> <a href='#!' data-id='$id_postulacion' data-idarchivo='$id_archivo' data-archivo='$archivo' class='btn-eliminar-archivo-titulo' data-campo='copiatitulo'><i class='bi bi-trash text-danger'></i></a> </td></tr>";
+
+																			    }
+																			    $SQLconsultaTitulos->close();
+													          		}
+													          	?>
+													          </tbody>
+													        </table>
+													    </div>
+													</form>
+													
+													<input type="text" class="requerido" name="copiatitulo-req" id="copiatitulo-req" value="<?php if($copiatitulo == "si"){echo "1";}?> ">
+													<span class="text-danger spanrequerido copiatitulo-reqspan">Campo requerido</span>
+												</div>
+											</div>
+
+<!--
+	CUARTO NIVEL
+ -->
+											<div class="row mt-40">
+												<div class="col-xl-12">
+													<form id="copiatitulocuartonivel" class="fileupload" action="" method="POST" enctype="multipart/form-data">
+														<div class="form-group">
+															<div class="row fileupload-buttonbar">
+													          <div class="col-lg-12">
+													          	<div class="row">
+													          		<div class="col-lg-5">
+													          			<label class="fs-14">
+															          		3- Copia de títulos de cuarto nivel de grado universitario. <span class="text-danger">*</span> <br>
+															          	</label>
+
+															          	<p class="text-muted mt-3">
+															          		Archivos permitidos: gif, jpeg, png, pdf. <br>
+															          		Tamaño máximo de cada archivo: 3 MB.
+															          	</p>
+
+															          	<input type="hidden" name="archivo[]" class="archivos required">
+													          		</div>
+													          		<div class="col-lg-7">
+													          			<img src="landings/assets/img/certificado-graduado.png">
+													          		</div>
+													          	</div>
+													          	
+													          </div>
+													          <div class="col-lg-12">
+														            <!-- The fileinput-button span is used to style the file input field as button -->
+														            <?php 
+														              $stylecopiatitulo = 0;
+														              $SQLCantTitulos = " SELECT * FROM titulos WHERE id_postulacion = '$id_postulacion' AND tipo = 2";
+																					$SQLconsultaCantTitulos = $conexionmysqli->query($SQLCantTitulos);
+																					$SQLconsultaCantTitulos->data_seek(0);
+																					$cantTitulos = mysqli_num_rows($SQLconsultaCantTitulos);
+																					$SQLconsultaCantTitulos->close();
+
+														            	if($cantTitulos == 3){
+														            		$stylecopiatitulo = "display: none";
+														             	}else{
+														             		$stylecopiatitulo = "display: initial";
+														             	}; 
+														            ?>
+														            <span class="btn btn-primary btn-sm fileinput-button"  id="cuartonivel" style="<?php echo $stylecopiatitulo; ?>">
+														              <i class="bi bi-plus"></i>
+														              <span>AÑADIR ARCHIVO <?php echo $cantTitulos; ?></span>
+														              <input type="file" name="files[]" multiple />
+														            </span>
+													            <span class="fileupload-process"></span>
+													          </div>
+													          <!-- The global progress state -->
+													          <div class="col-lg-7 fileupload-progress fade" style="margin-top: 5px;">
+													            
+													            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+													              <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
+													            </div>
+													          
+													            <div class="progress-extended">&nbsp;</div>
+													          </div>
+
+													        </div>
+													        <!-- The table listing the files available for upload/download -->
+													        <table role="presentation" class="table table-bordered" id="tabla-copiatitulocuartonivel" data-idp="<?php echo $id_postulacion ?>">
+													          <thead>
+													          	<tr>
+													          		<!-- th></th -->
+													          		<th colspan="2" style="border: 1px solid #cdcdcd;">Archivo</th>
+													          		<!-- th style="border: 1px solid #cdcdcd;">Acciones</th -->
+													          	</tr>
+													          </thead>
+													          <tbody class="files">
+													          	<?php 
+													          		if ($copiatitulocuartonivel == 'si') {
+													          			//Consulto los archivos en la BD
+													          			$SQLTitulos = " SELECT * FROM titulos WHERE id_postulacion = '$id_postulacion' AND tipo = 2";
+																				  $SQLconsultaTitulos = $conexionmysqli->query($SQLTitulos);
+																				  $SQLconsultaTitulos->data_seek(0);
+																				  $x=0;
+																				    while ($registro_Titulos = $SQLconsultaTitulos->fetch_assoc()) {
+																				    	
+																				    	$x++;
+																				    	$id_archivo = $registro_Titulos['id_titulo'];
+																				   		$archivo = $registro_Titulos['archivo'];
+
+																				   		echo "<tr><td>$archivo</td><td> <a href='$_urlApp/uploads/$archivo' target='_blank' class='btn-ver-archivo' data-archivo='$archivo'><i class='bi bi-eye text-success'></i></a> <a href='#!' data-id='$id_postulacion' data-idarchivo='$id_archivo' data-archivo='$archivo' class='btn-eliminar-archivo-titulo' data-campo='copiatitulocuartonivel'><i class='bi bi-trash text-danger'></i></a> </td></tr>";
+
+																			    }
+																			    $SQLconsultaTitulos->close();
+													          		}
+													          	?>
+													          </tbody>
+													        </table>
+													    </div>
+													</form>
+													<input type="text" class="requerido" name="copiatitulocuartonivel-req" id="copiatitulocuartonivel-req" value="<?php if($copiatitulocuartonivel == 'si'){echo "1";}?> ">
+													<span class="text-danger spanrequerido copiatitulocuartonivel-reqspan">Campo requerido</span>
+												</div>
+											</div>

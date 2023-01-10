@@ -10,7 +10,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons 2022-->
+  <!-- Favicons 2022-01-10-->
   <link rel="shortcut icon" href="assets/media/logos/logo-rep-32x32.png" />
   <link href="landings/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 

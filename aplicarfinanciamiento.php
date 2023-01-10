@@ -10,7 +10,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons Dixander -->
+  <!-- Favicons Dixander REP Ecuatoriana de Pedagogia-->
   <link rel="shortcut icon" href="assets/media/logos/logo-rep-32x32.png" />
   <link href="landings/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 

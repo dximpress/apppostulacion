@@ -210,26 +210,36 @@
 				
 				$aplicafinanciamiento = $registro_RegPostulacion['aplicafinanciamiento']; //36
 				$f_aplicafinanciamiento = $registro_RegPostulacion['f_aplicafinanciamiento'];
-				$f = new DateTime($f_aplicafinanciamiento);
-				$ff_inicio = $f->format('d-m-Y H:i:s');
-				$f_dia = date("w",strtotime($f_aplicafinanciamiento));
+				$fi = new DateTime($f_aplicafinanciamiento);
+				$ff_inicio = $fi->format('d-m-Y H:i:s');
 
-				if ($f_dia == '5') {//Viernes
-					$f_finan = date('Y-m-d H:i:s', strtotime($f_aplicafinanciamiento. ' + 3 days'));
-					$f = new DateTime($f_finan);
-					$ff_fin = $f->format('d-m-Y H:i:s');
+				$f_fin_aplicafinanciamiento	 = $registro_RegPostulacion['f_fin_aplicafinanciamiento'];
+				$ff = new DateTime($f_fin_aplicafinanciamiento);
+				$ff_fin = $ff->format('d-m-Y H:i:s');
+
+				/*
+					$f = new DateTime($f_aplicafinanciamiento);
+					$ff_inicio = $f->format('d-m-Y H:i:s');
+				*/
 					$f_dia = date("w",strtotime($f_aplicafinanciamiento));
-				}else if ($f_dia == '6') {//Sábado
-					$f_finan = date('Y-m-d H:i:s', strtotime($f_aplicafinanciamiento. ' + 2 days'));
-					$f = new DateTime($f_finan);
-					$ff_fin = $f->format('d-m-Y H:i:s');
-					$f_dia = date("w",strtotime($f_aplicafinanciamiento));
-				}else{
-					$f_finan = date('Y-m-d H:i:s', strtotime($f_aplicafinanciamiento. ' + 1 days'));
-					$f = new DateTime($f_finan);
-					$ff_fin = $f->format('d-m-Y H:i:s');
-					$f_dia = date("w",strtotime($f_aplicafinanciamiento));
-				}
+					
+					if ($f_dia == '5') {//Viernes
+						$f_finan = date('Y-m-d H:i:s', strtotime($f_aplicafinanciamiento. ' + 3 days'));
+					//	$f = new DateTime($f_finan);
+					//	$ff_fin = $f->format('d-m-Y H:i:s');
+					//	$f_dia = date("w",strtotime($f_aplicafinanciamiento));
+					}else if ($f_dia == '6') {//Sábado
+						$f_finan = date('Y-m-d H:i:s', strtotime($f_aplicafinanciamiento. ' + 2 days'));
+					//	$f = new DateTime($f_finan);
+					//	$ff_fin = $f->format('d-m-Y H:i:s');
+					//	$f_dia = date("w",strtotime($f_aplicafinanciamiento));
+					}else{
+						$f_finan = date('Y-m-d H:i:s', strtotime($f_aplicafinanciamiento. ' + 1 days'));
+					//	$f = new DateTime($f_finan);
+					//	$ff_fin = $f->format('d-m-Y H:i:s');
+					//	$f_dia = date("w",strtotime($f_aplicafinanciamiento));
+					}
+				
 
 				$aprobadofinrep = $registro_RegPostulacion['aprobadofinrep']; //37
 				$fincedula = $registro_RegPostulacion['fincedula']; //38
@@ -328,11 +338,10 @@
             <span class="text-danger">* <span class="text-dark">Campos obligatorios.</span></span>
           
             <div class="alert alert-primary" style="margin-top: 25px; padding-top: 25px;">
-            	<p>Estimado postulante, te informamos que aplicaste al Crédito Educativo el <?php echo "$ff_inicio"; ?> y tienes hasta el <?php echo"$ff_fin"; ?> para subir tu número de cédula y el buró de crédito para poder continuar con el proceso de aprobación del Crédito Educativo.</p><br>
-            	<p>Día de la semana que aplicó: <?php echo"$f_dia"; ?></p>
+            	<p>Estimado postulante, te informamos que aplicaste al Crédito Educativo el <?php echo "$ff_inicio"; ?> y tienes hasta el <?php echo"$ff_fin"; ?> para subir tu número de cédula y el buró de crédito para poder continuar con el proceso de aprobación del Crédito Educativo.</p>
             </div>
 
-            <?php if($f_finan <= $fechaCompleta){ ?>
+            <?php if($f_fin_aplicafinanciamiento <= $fechaCompleta){ ?>
             	<div class="alert alert-danger" style="margin-top: 25px; padding-top: 25px;">
 	            	<p>Su límte de tiempo ha finalizado, si desea ampliar el período comuniquese con un asesor de admisiones.</p>
 	            </div>
@@ -351,7 +360,7 @@
 		<div class="container">
 			<div class="card card-custom">
 				<div class="card-body p-0">
-					<?php if($f_finan > $fechaCompleta){ ?>
+					<?php if($f_fin_aplicafinanciamiento > $fechaCompleta){ ?>
 						<!--begin: Wizard-->
 						<div class="" id="kt_wizard_fomrulario_postulacion" data-wizard-state="step-first" data-wizard-clickable="false">
 							<!--begin: Wizard Body-->
